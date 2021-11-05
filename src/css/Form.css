@@ -1,0 +1,8 @@
+form {
+  align-items: center;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  height: 1056px;
+  width: 100%;
+}

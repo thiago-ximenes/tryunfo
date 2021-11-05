@@ -1,0 +1,11 @@
+.label-description {
+  right: 85.07%;
+}
+
+.input-description {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 37px;
+  width: 355px;
+}
