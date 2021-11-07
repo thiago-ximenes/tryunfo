@@ -1,10 +1,10 @@
 import React from 'react';
-// import './Name.css';
+import '../css/Attributes.css';
 
 class Attributes extends React.Component {
   render() {
     return (
-      <>
+      <div className="attributes">
         <label htmlFor="attribute1">
           Atributo 1
           <input
@@ -30,7 +30,7 @@ class Attributes extends React.Component {
             name="attribute3"
           />
         </label>
-      </>
+      </div>
     );
   }
 }
