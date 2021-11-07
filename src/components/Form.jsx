@@ -1,8 +1,9 @@
 import React from 'react';
-import Name from './Name';
-import Description from './Description';
-import Attributes from './Attributes';
 import '../css/Form.css';
+import Attributes from './Attributes';
+import Description from './Description';
+import Name from './Name';
+import SelectItem from './SelectItem';
 
 class Form extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Form extends React.Component {
         <Name />
         <Description />
         <Attributes />
+        <SelectItem />
       </form>
     );
   }
