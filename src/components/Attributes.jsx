@@ -6,7 +6,7 @@ class Attributes extends React.Component {
     return (
       <div className="attributes">
         <label htmlFor="attribute1">
-          Atributo 1
+          Attr 1
           <input
             id="attribute1"
             type="number"
@@ -15,7 +15,7 @@ class Attributes extends React.Component {
           />
         </label>
         <label htmlFor="attribute2">
-          Atributo 2
+          Attr 2
           <input
             type="number"
             data-testid="attr2-input"
@@ -23,7 +23,7 @@ class Attributes extends React.Component {
           />
         </label>
         <label htmlFor="attribute3">
-          Atributo 3
+          Attr 3
           <input
             type="number"
             data-testid="attr3-input"
