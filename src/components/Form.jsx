@@ -4,6 +4,7 @@ import Attributes from './Attributes';
 import Description from './Description';
 import Name from './Name';
 import SelectItem from './SelectItem';
+import Checkbox from './Checkbox';
 
 class Form extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class Form extends React.Component {
         <Description />
         <Attributes />
         <SelectItem />
+        <Checkbox />
       </form>
     );
   }
