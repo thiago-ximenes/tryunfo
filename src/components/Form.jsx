@@ -5,6 +5,7 @@ import Description from './Description';
 import Name from './Name';
 import SelectItem from './SelectItem';
 import Checkbox from './Checkbox';
+import Button from './Button';
 
 class Form extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class Form extends React.Component {
         <Attributes />
         <SelectItem />
         <Checkbox />
+        <Button />
       </form>
     );
   }
