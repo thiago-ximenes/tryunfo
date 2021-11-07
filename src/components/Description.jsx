@@ -6,7 +6,6 @@ class Description extends React.Component {
     return (
       <label
         htmlFor="description"
-        className="label-description"
       >
         Descrição
         <textarea

@@ -6,7 +6,6 @@ class Name extends React.Component {
     return (
       <label
         htmlFor="name"
-        className="input-label"
       >
         Nome
         <input
