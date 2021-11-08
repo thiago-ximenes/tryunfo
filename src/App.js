@@ -8,6 +8,7 @@ class App extends React.Component {
   }
 
   onSaveButtonClick(event) {
+    prevent.default();
     return console.log(event);
   }
 

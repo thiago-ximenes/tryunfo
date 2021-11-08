@@ -9,6 +9,8 @@ import Image from './Image';
 import Checkbox from './Checkbox';
 import Button from './Button';
 
+// Recebi uma ajuda que economizou muito do meu tempo no requisito 2 da Fumagalli da Tribo for(ever)
+
 class Form extends React.Component {
   render() {
     const {
