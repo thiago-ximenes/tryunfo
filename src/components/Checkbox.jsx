@@ -7,6 +7,7 @@ class Checkbox extends React.Component {
 
     return (
       <input
+        name="cardTrunfo"
         checked={ cardTrunfo }
         onChange={ onInputChange }
         type="checkbox"
