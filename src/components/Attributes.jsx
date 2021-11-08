@@ -15,7 +15,7 @@ class Attributes extends React.Component {
             id="attribute1"
             type="number"
             data-testid="attr1-input"
-            name="attribute1"
+            name="cardAttr1"
           />
         </label>
         <label htmlFor="attribute2">
@@ -25,7 +25,7 @@ class Attributes extends React.Component {
             onChange={ onInputChange }
             type="number"
             data-testid="attr2-input"
-            name="attribute2"
+            name="cardAttr2"
           />
         </label>
         <label htmlFor="attribute3">
@@ -35,7 +35,7 @@ class Attributes extends React.Component {
             onChange={ onInputChange }
             type="number"
             data-testid="attr3-input"
-            name="attribute3"
+            name="cardAttr3"
           />
         </label>
       </div>
