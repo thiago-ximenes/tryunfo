@@ -33,7 +33,10 @@ class Form extends React.Component {
           cardDescription={ cardDescription }
           onInputChange={ onInputChange }
         />
-        <Attributes cardAttr={ [cardAttr1, cardAttr2, cardAttr3] } />
+        <Attributes
+          cardAttr={ [cardAttr1, cardAttr2, cardAttr3] }
+          onInputChange={ onInputChange }
+        />
         <Image cardImage={ cardImage } onChange={ onInputChange } />
         <SelectItem cardRare={ cardRare } onChange={ onInputChange } />
         <Checkbox cardTrunfo={ cardTrunfo } onChange={ onInputChange } />
