@@ -17,7 +17,7 @@ class Description extends React.Component {
           id="description"
           type="text"
           data-testid="description-input"
-          name="name"
+          name="cardDescription"
         />
       </label>
     );

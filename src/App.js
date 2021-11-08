@@ -22,7 +22,6 @@ class App extends React.Component {
 
   onInputChange = ({ target }) => {
     const { name, value } = target;
-    console.log(target)
     this.setState({ [name]: value });
   }
 
