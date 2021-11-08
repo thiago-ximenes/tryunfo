@@ -31,7 +31,7 @@ class Form extends React.Component {
         <Name cardName={ cardName } onInputChange={ onInputChange } />
         <Description
           cardDescription={ cardDescription }
-          onChange={ onInputChange }
+          onInputChange={ onInputChange }
         />
         <Attributes cardAttr={ [cardAttr1, cardAttr2, cardAttr3] } />
         <Image cardImage={ cardImage } onChange={ onInputChange } />
