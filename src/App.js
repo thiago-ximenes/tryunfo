@@ -4,8 +4,26 @@ import Card from './components/Card';
 import './App.css';
 
 class App extends React.Component {
-  onInputChange(event) {
-    return console.log(event.target.value);
+  constructor() {
+    super();
+    this.state = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+      hasTrunfo: false,
+
+    };
+  }
+
+  onInputChange = ({ target }) => {
+    const { name, value } = target;
+    console.log(target)
+    this.setState({ [name]: value });
   }
 
   onSaveButtonClick(event) {
@@ -15,31 +33,43 @@ class App extends React.Component {
 
   render() {
     const { onInputChange, onSaveButtonClick } = this;
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+    } = this.state;
     return (
       <div>
         <Form
-          cardName="igual qualquer coisa aí"
-          cardDescription="igual qualquer coisa aí"
-          cardAttr1="1"
-          cardAttr2="2"
-          cardAttr3="3"
-          cardImage="igual qualquer coisa aí"
-          cardRare="igual qualquer coisa aí"
-          cardTrunfo={ false }
-          hasTrunfo={ false }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ false }
           onInputChange={ onInputChange }
           onSaveButtonClick={ onSaveButtonClick }
         />
         <Card
-          cardName="Miguel"
-          cardDescription="Manuella"
-          cardAttr1="1"
-          cardAttr2="2"
-          cardAttr3="3"
-          cardImage="igual qualquer coisa aí"
-          cardRare="vixe"
-          cardTrunfo={ false }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          alt={ cardName }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
         />
       </div>
     );

@@ -10,6 +10,7 @@ class Image extends React.Component {
         onChange={ onInputChange }
         type="text"
         data-testid="image-input"
+        name="cardImage"
       />
     );
   }

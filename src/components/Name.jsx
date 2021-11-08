@@ -18,7 +18,7 @@ class Name extends React.Component {
           id="name"
           type="text"
           data-testid="name-input"
-          name="name"
+          name="cardName"
         />
       </label>
     );
