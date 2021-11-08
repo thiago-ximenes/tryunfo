@@ -3,6 +3,14 @@ import Form from './components/Form';
 import './App.css';
 
 class App extends React.Component {
+  onInputChange(event) {
+    return console.log(event);
+  }
+
+  onSaveButtonClick(event) {
+    return console.log(event);
+  }
+
   render() {
     return (
       <div>
@@ -17,8 +25,8 @@ class App extends React.Component {
           cardTrunfo={ false }
           hasTrunfo={ false }
           isSaveButtonDisabled="igual qualquer coisa aí"
-          onInputChange={ () => {} }
-          onSaveButtonClick={ () => {} }
+          onInputChange={ onInputChange }
+          onSaveButtonClick={ onSaveButtonClick }
         />
       </div>
     );

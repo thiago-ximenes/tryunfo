@@ -25,9 +25,10 @@ class Form extends React.Component {
       isSaveButtonDisabled,
       onSaveButtonClick,
     } = this.props;
+
     return (
       <form>
-        <Name cardName={ cardName } onChange={ onInputChange } />
+        <Name cardName={ cardName } onInputChange={ onInputChange } />
         <Description
           cardDescription={ cardDescription }
           onChange={ onInputChange }
