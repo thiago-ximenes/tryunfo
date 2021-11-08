@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends React.Component {
   onInputChange(event) {
-    return console.log(event);
+    return console.log(event.target.value);
   }
 
   onSaveButtonClick(event) {
@@ -12,6 +12,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { onInputChange, onSaveButtonClick } = this;
     return (
       <div>
         <Form
@@ -24,7 +25,7 @@ class App extends React.Component {
           cardRare="igual qualquer coisa aí"
           cardTrunfo={ false }
           hasTrunfo={ false }
-          isSaveButtonDisabled="igual qualquer coisa aí"
+          isSaveButtonDisabled={ false }
           onInputChange={ onInputChange }
           onSaveButtonClick={ onSaveButtonClick }
         />

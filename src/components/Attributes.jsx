@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 import '../css/Attributes.css';
 
 class Attributes extends React.Component {
@@ -10,7 +10,7 @@ class Attributes extends React.Component {
         <label htmlFor="attribute1">
           Attr 1
           <input
-            value={cardAttr[0]}
+            value={ cardAttr[0] }
             onChange={ onInputChange }
             id="attribute1"
             type="number"
@@ -21,7 +21,7 @@ class Attributes extends React.Component {
         <label htmlFor="attribute2">
           Attr 2
           <input
-            value={cardAttr[1]}
+            value={ cardAttr[1] }
             onChange={ onInputChange }
             type="number"
             data-testid="attr2-input"
@@ -31,7 +31,7 @@ class Attributes extends React.Component {
         <label htmlFor="attribute3">
           Attr 3
           <input
-            value={cardAttr[2]}
+            value={ cardAttr[2] }
             onChange={ onInputChange }
             type="number"
             data-testid="attr3-input"
@@ -44,7 +44,7 @@ class Attributes extends React.Component {
 }
 
 Attributes.propTypes = {
-  cardAttr: PropTypes.string.isRequired,
+  cardAttr: PropTypes.arrayOf(PropTypes.string).isRequired,
   onInputChange: PropTypes.func.isRequired,
 };
 

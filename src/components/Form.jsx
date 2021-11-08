@@ -37,12 +37,12 @@ class Form extends React.Component {
           cardAttr={ [cardAttr1, cardAttr2, cardAttr3] }
           onInputChange={ onInputChange }
         />
-        <Image cardImage={ cardImage } onChange={ onInputChange } />
-        <SelectItem cardRare={ cardRare } onChange={ onInputChange } />
-        <Checkbox cardTrunfo={ cardTrunfo } onChange={ onInputChange } />
+        <Image cardImage={ cardImage } onInputChange={ onInputChange } />
+        <SelectItem cardRare={ cardRare } onInputChange={ onInputChange } />
+        <Checkbox cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
         <Button
           isSaveButtonDisabled={ isSaveButtonDisabled }
-          onChangeonClick={ onSaveButtonClick }
+          onSaveButtonClick={ onSaveButtonClick }
         />
       </form>
     );
