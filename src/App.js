@@ -9,13 +9,14 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
+      isSaveButtonDisabled: true,
 
     };
   }
@@ -23,12 +24,39 @@ class App extends React.Component {
   onInputChange = ({ target }) => {
     const { name } = target;
     const value = (target.type === 'checkbox') ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState({
+      [name]: value,
+    }, () => this.setState({ isSaveButtonDisabled: this.ableSubmitButton() }));
   }
 
   onSaveButtonClick(event) {
     prevent.default();
     return console.log(event);
+  }
+
+  ableSubmitButton = () => {
+    const NINETY = 90;
+    const maxValue = 210;
+    const {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+    } = this.state;
+    const SUM = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    console.log(SUM, maxValue);
+    if (cardAttr1 > NINETY || cardAttr2 > NINETY || cardAttr3 > NINETY) return true;
+    if (cardAttr1 < 0 || cardAttr2 < 0 || cardAttr3 < 0) return true;
+    if (SUM > maxValue) return true;
+    if (cardName !== ''
+    && cardDescription !== ''
+    && cardImage !== ''
+    && cardRare !== ''
+    ) return false;
+    return true;
   }
 
   render() {
@@ -43,6 +71,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      isSaveButtonDisabled,
     } = this.state;
     return (
       <div>
@@ -56,7 +85,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ false }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ onInputChange }
           onSaveButtonClick={ onSaveButtonClick }
         />

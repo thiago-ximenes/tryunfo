@@ -7,6 +7,7 @@ class SelectItem extends React.Component {
     return (
       <div>
         <select
+          name="cardRare"
           value={ cardRare }
           onChange={ onInputChange }
           data-testid="rare-input"
