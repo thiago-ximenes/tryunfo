@@ -23,7 +23,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onSaveButtonClick,
     } = this.props;
@@ -41,7 +41,9 @@ class Form extends React.Component {
         />
         <Image cardImage={ cardImage } onInputChange={ onInputChange } />
         <SelectItem cardRare={ cardRare } onInputChange={ onInputChange } />
-        <Checkbox cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
+        {!hasTrunfo
+          ? <Checkbox cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
+          : <p>Você já tem um Super Trunfo em seu baralho</p>}
         <Button
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ onSaveButtonClick }
@@ -61,7 +63,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };

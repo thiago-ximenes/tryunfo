@@ -45,6 +45,7 @@ class App extends React.Component {
       savedCards,
       cardTrunfo,
     } = this.state;
+    if (cardTrunfo) this.setState({ hasTrunfo: true });
     console.log(savedCards);
     this.setState((prevState) => ({
       savedCards: [
