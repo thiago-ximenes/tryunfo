@@ -42,24 +42,21 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2,
       cardAttr3,
-      savedCards,
       cardTrunfo,
     } = this.state;
     if (cardTrunfo) this.setState({ hasTrunfo: true });
-    console.log(savedCards);
     this.setState((prevState) => ({
       savedCards: [
         ...prevState.savedCards,
         {
-          [cardName]: {
-            cardImage,
-            cardDescription,
-            cardAttr1,
-            cardAttr2,
-            cardAttr3,
-            cardRare,
-            cardTrunfo: { cardTrunfo },
-          },
+          cardName,
+          cardImage,
+          cardDescription,
+          cardAttr1,
+          cardAttr2,
+          cardAttr3,
+          cardRare,
+          cardTrunfo,
         },
       ],
       cardName: '',
@@ -110,6 +107,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      savedCards,
     } = this.state;
     return (
       <div>
@@ -138,6 +136,20 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        {savedCards.map((card) => (
+          <Card
+            key={ card.cardName }
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardImage={ card.cardImage }
+            alt={ card.cardName }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+          />
+        ))}
       </div>
     );
   }
