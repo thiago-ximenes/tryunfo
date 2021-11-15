@@ -53,7 +53,7 @@ class App extends React.Component {
       savedCards: [
         ...prevState.savedCards,
         {
-          cardName,
+          cardName: cardName.toLowerCase(),
           cardImage,
           cardDescription,
           cardAttr1,
@@ -156,27 +156,31 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {savedCards.map((card) => (
-          <Container key={ card.cardName }>
-            <Card
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              alt={ card.cardName }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
-            />
-            <Button
-              data-testid="delete-button"
-              onClick={ onDeleteButtonClick }
-            >
-              Excluir
-            </Button>
-          </Container>
-        ))}
+        {savedCards
+          .filter((
+            card,
+          ) => card.cardName.includes(searchByName))
+          .map((card) => (
+            <Container key={ card.cardName }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                alt={ card.cardName }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+              <Button
+                data-testid="delete-button"
+                onClick={ onDeleteButtonClick }
+              >
+                Excluir
+              </Button>
+            </Container>
+          ))}
       </div>
     );
   }
