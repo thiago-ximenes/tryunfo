@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Form from './components/Form';
 import Card from './components/Card';
+import CardFilter from './components/CardFilter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       savedCards: [],
+      searchByName: '',
     };
   }
 
@@ -124,9 +126,11 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       savedCards,
+      searchByName,
     } = this.state;
     return (
       <div>
+        <CardFilter onChange={ onInputChange } searchByName={ searchByName } />
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
