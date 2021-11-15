@@ -1,6 +1,8 @@
 import React from 'react';
+import { Button, Container } from 'react-bootstrap';
 import Form from './components/Form';
 import Card from './components/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends React.Component {
@@ -94,8 +96,22 @@ class App extends React.Component {
     return true;
   };
 
+  onDeleteButtonClick = (event) => {
+    const { savedCards } = this.state;
+    event.preventDefault();
+    const cardNameFromDom = event.target.previousElementSibling.children[0].innerText;
+    const newSavedCards = savedCards.filter((
+      cards,
+    ) => cards.cardName !== cardNameFromDom);
+    this.setState({
+      savedCards: newSavedCards,
+    });
+    if (savedCards.some((card) => !card.hasTrunfo)) this.setState({ hasTrunfo: false });
+    event.target.previousElementSibling.remove();
+  }
+
   render() {
-    const { onInputChange, onSaveButtonClick } = this;
+    const { onInputChange, onSaveButtonClick, onDeleteButtonClick } = this;
     const {
       cardName,
       cardDescription,
@@ -137,18 +153,25 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         {savedCards.map((card) => (
-          <Card
-            key={ card.cardName }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            alt={ card.cardName }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
-          />
+          <Container key={ card.cardName }>
+            <Card
+              cardName={ card.cardName }
+              cardDescription={ card.cardDescription }
+              cardAttr1={ card.cardAttr1 }
+              cardAttr2={ card.cardAttr2 }
+              cardAttr3={ card.cardAttr3 }
+              cardImage={ card.cardImage }
+              alt={ card.cardName }
+              cardRare={ card.cardRare }
+              cardTrunfo={ card.cardTrunfo }
+            />
+            <Button
+              data-testid="delete-button"
+              onClick={ onDeleteButtonClick }
+            >
+              Excluir
+            </Button>
+          </Container>
         ))}
       </div>
     );
