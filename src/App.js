@@ -23,6 +23,8 @@ class App extends React.Component {
       savedCards: [],
       searchByName: '',
       searchByRare: 'todas',
+      searchByTrunfo: false,
+      searchInputs: false,
     };
   }
 
@@ -49,7 +51,7 @@ class App extends React.Component {
       cardAttr3,
       cardTrunfo,
     } = this.state;
-    if (cardTrunfo) this.setState({ hasTrunfo: true });
+    if (cardTrunfo) this.setState({ hasTrunfo: true, cardTrunfo: false });
     this.setState((prevState) => ({
       savedCards: [
         ...prevState.savedCards,
@@ -129,6 +131,8 @@ class App extends React.Component {
       savedCards,
       searchByName,
       searchByRare,
+      searchByTrunfo,
+      searchInputs,
     } = this.state;
     return (
       <Container>
@@ -136,6 +140,8 @@ class App extends React.Component {
           onChange={ onInputChange }
           searchByName={ searchByName }
           searchByRare={ searchByRare }
+          searchByTrunfo={ searchByTrunfo }
+          searchInputs={ searchInputs }
         />
         <Forms
           cardName={ cardName }
@@ -163,6 +169,14 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         {savedCards
+          .filter((
+            card,
+          ) => {
+            if (searchByTrunfo) {
+              return card.cardTrunfo === searchByTrunfo;
+            }
+            return true;
+          })
           .filter((
             card,
           ) => {
