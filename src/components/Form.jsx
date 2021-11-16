@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Form.css';
+import { Form, Container, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Attributes from './Attributes';
 import Description from './Description';
@@ -7,11 +7,10 @@ import Name from './Name';
 import SelectItem from './SelectItem';
 import Image from './Image';
 import Checkbox from './Checkbox';
-import Button from './Button';
 
 // Recebi uma ajuda que economizou muito do meu tempo no requisito 2 da Fumagalli da Tribo for(ever)
 
-class Form extends React.Component {
+class Forms extends React.Component {
   render() {
     const {
       cardName,
@@ -29,31 +28,37 @@ class Form extends React.Component {
     } = this.props;
 
     return (
-      <form>
-        <Name cardName={ cardName } onInputChange={ onInputChange } />
-        <Description
-          cardDescription={ cardDescription }
-          onInputChange={ onInputChange }
-        />
-        <Attributes
-          cardAttr={ [cardAttr1, cardAttr2, cardAttr3] }
-          onInputChange={ onInputChange }
-        />
-        <Image cardImage={ cardImage } onInputChange={ onInputChange } />
-        <SelectItem cardRare={ cardRare } onInputChange={ onInputChange } />
-        {!hasTrunfo
-          ? <Checkbox cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
-          : <p>Você já tem um Super Trunfo em seu baralho</p>}
-        <Button
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onSaveButtonClick={ onSaveButtonClick }
-        />
-      </form>
+      <Container fluid>
+        <Form>
+          <Name cardName={ cardName } onInputChange={ onInputChange } />
+          <Description
+            cardDescription={ cardDescription }
+            onInputChange={ onInputChange }
+          />
+          <Attributes
+            cardAttr={ [cardAttr1, cardAttr2, cardAttr3] }
+            onInputChange={ onInputChange }
+          />
+          <Image cardImage={ cardImage } onInputChange={ onInputChange } />
+          <SelectItem cardRare={ cardRare } onInputChange={ onInputChange } />
+          {!hasTrunfo
+            ? <Checkbox cardTrunfo={ cardTrunfo } onInputChange={ onInputChange } />
+            : <p>Você já tem um Super Trunfo em seu baralho</p>}
+          <Button
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+            data-testid="save-button"
+            type="submit"
+          >
+            Salvar
+          </Button>
+        </Form>
+      </Container>
     );
   }
 }
 
-Form.propTypes = {
+Forms.propTypes = {
   cardName: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired,
   cardDescription: PropTypes.string.isRequired,
@@ -68,4 +73,4 @@ Form.propTypes = {
   onSaveButtonClick: PropTypes.func.isRequired,
 };
 
-export default Form;
+export default Forms;

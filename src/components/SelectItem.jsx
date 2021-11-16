@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
 
 class SelectItem extends React.Component {
@@ -6,7 +7,7 @@ class SelectItem extends React.Component {
     const { cardRare, onInputChange } = this.props;
     return (
       <div>
-        <select
+        <Form.Select
           name="cardRare"
           value={ cardRare }
           onChange={ onInputChange }
@@ -15,7 +16,7 @@ class SelectItem extends React.Component {
           <option value="normal">Normal</option>
           <option value="raro">Raro</option>
           <option value="muito raro">Muito Raro</option>
-        </select>
+        </Form.Select>
       </div>
     );
   }

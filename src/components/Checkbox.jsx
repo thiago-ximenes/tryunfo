@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 class Checkbox extends React.Component {
@@ -6,7 +7,7 @@ class Checkbox extends React.Component {
     const { cardTrunfo, onInputChange } = this.props;
 
     return (
-      <input
+      <Form.Check
         name="cardTrunfo"
         checked={ cardTrunfo }
         onChange={ onInputChange }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
-import Form from './components/Form';
+import Forms from './components/Form';
 import Card from './components/Card';
 import CardFilter from './components/CardFilter';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,7 +53,7 @@ class App extends React.Component {
       savedCards: [
         ...prevState.savedCards,
         {
-          cardName: cardName.toLowerCase(),
+          cardName,
           cardImage,
           cardDescription,
           cardAttr1,
@@ -131,7 +131,7 @@ class App extends React.Component {
     return (
       <div>
         <CardFilter onChange={ onInputChange } searchByName={ searchByName } />
-        <Form
+        <Forms
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
