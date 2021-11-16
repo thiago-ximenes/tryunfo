@@ -159,7 +159,10 @@ class App extends React.Component {
         {savedCards
           .filter((
             card,
-          ) => card.cardName.includes(searchByName))
+          ) => {
+            if (searchByName !== '') return card.cardName.includes(searchByName);
+            return true;
+          })
           .map((card) => (
             <Container key={ card.cardName }>
               <Card
@@ -174,6 +177,7 @@ class App extends React.Component {
                 cardTrunfo={ card.cardTrunfo }
               />
               <Button
+                variant="danger"
                 data-testid="delete-button"
                 onClick={ onDeleteButtonClick }
               >
