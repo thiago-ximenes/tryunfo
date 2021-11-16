@@ -24,7 +24,6 @@ class App extends React.Component {
       searchByName: '',
       searchByRare: 'todas',
       searchByTrunfo: false,
-      searchInputs: false,
     };
   }
 
@@ -35,7 +34,9 @@ class App extends React.Component {
       {
         [name]: value,
       },
-      () => this.setState({ isSaveButtonDisabled: this.ableSubmitButton() }),
+      () => this.setState({
+        isSaveButtonDisabled: this.ableSubmitButton(),
+      }),
     );
   };
 
@@ -132,7 +133,6 @@ class App extends React.Component {
       searchByName,
       searchByRare,
       searchByTrunfo,
-      searchInputs,
     } = this.state;
     return (
       <Container>
@@ -141,7 +141,7 @@ class App extends React.Component {
           searchByName={ searchByName }
           searchByRare={ searchByRare }
           searchByTrunfo={ searchByTrunfo }
-          searchInputs={ searchInputs }
+          searchInputs={ searchByTrunfo }
         />
         <Forms
           cardName={ cardName }
