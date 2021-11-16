@@ -22,6 +22,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       savedCards: [],
       searchByName: '',
+      searchByRare: 'todas',
     };
   }
 
@@ -127,10 +128,15 @@ class App extends React.Component {
       isSaveButtonDisabled,
       savedCards,
       searchByName,
+      searchByRare,
     } = this.state;
     return (
-      <div>
-        <CardFilter onChange={ onInputChange } searchByName={ searchByName } />
+      <Container>
+        <CardFilter
+          onChange={ onInputChange }
+          searchByName={ searchByName }
+          searchByRare={ searchByRare }
+        />
         <Forms
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -160,6 +166,12 @@ class App extends React.Component {
           .filter((
             card,
           ) => {
+            if (searchByRare !== 'todas') return card.cardRare === searchByRare;
+            return true;
+          })
+          .filter((
+            card,
+          ) => {
             if (searchByName !== '') return card.cardName.includes(searchByName);
             return true;
           })
@@ -185,7 +197,7 @@ class App extends React.Component {
               </Button>
             </Container>
           ))}
-      </div>
+      </Container>
     );
   }
 }
